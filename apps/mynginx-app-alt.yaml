@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-app-alt
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/avoidGit/agrocd-test.git
+    path: mynginx-alt
+    targetRevision: HEAD
+  destination:
+    server: https://kubernetes.default.svc 
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true   # удалять ресурсы, если их убрали из Git
+      selfHeal: true # автоматически восстанавливать состояние, если оно изменилось вручную
