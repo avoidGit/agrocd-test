@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/avoidGit/agrocd-test.git
-    path: mynginx-alt
+    path: apps/mynginx-alt
     targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc 
